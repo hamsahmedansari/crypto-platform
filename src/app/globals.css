@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.css-1o0kqxp-MuiInputBase-root-MuiOutlinedInput-root:hover
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #aa8409;
+}
+.css-1o0kqxp-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #f0b90b;
+  border-width: 1.5px;
+}
+.css-1jk99ih-MuiInputBase-input-MuiOutlinedInput-input {
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .css-pdct74-MuiTablePagination-selectLabel,
+  .css-5wue95-MuiInputBase-root-MuiTablePagination-select {
+    display: none;
+  }
+  .css-16qp5c7-MuiTableCell-root,
+  .css-ofbqqu-MuiTableCell-root {
+    padding: 10px !important;
+  }
+}

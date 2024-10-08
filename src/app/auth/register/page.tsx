@@ -1,0 +1,69 @@
+"use client";
+import React from "react";
+import { useRouter } from "next/navigation";
+import { Button, Typography, Box, useMediaQuery } from "@mui/material";
+import InputField from "@/src/components/InputField";
+import MenTakingPicture from "@/src/components/TakingPictureSVG";
+import CustomButton from "@/src/components/CustomButton";
+import { authImg, formDiv, mainDiv, routeBtn } from "@/src/styles/auth";
+
+const Register = () => {
+  const router = useRouter();
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const handleRegister = () => {
+    router.push("/auth/login");
+  };
+  const isLaptopScreen = useMediaQuery("(max-width:1024px)");
+  const isMobileScreen = useMediaQuery("(max-width:500px)");
+
+  return (
+    <Box sx={mainDiv(isLaptopScreen)}>
+      <Box sx={authImg(isLaptopScreen)}>
+        <MenTakingPicture />
+      </Box>
+      <Box sx={formDiv(isLaptopScreen, isMobileScreen)}>
+        <Typography
+          variant="h4"
+          fontWeight={600}
+          marginBottom="20px"
+          gutterBottom
+          color="white"
+          textAlign="center"
+        >
+          Sign up
+        </Typography>
+        <Box component="form" noValidate autoComplete="off" width="100%">
+          <InputField
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <InputField
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <CustomButton label="Sign up" onClick={handleRegister} />
+        </Box>
+        <Typography
+          variant="body2"
+          align="center"
+          marginTop={2}
+          color="#8c8c8c"
+        >
+          Don&apos;t have an account?{" "}
+          <Button onClick={() => router.push("/auth/login")} sx={routeBtn}>
+            Login
+          </Button>
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
+export default Register;
